@@ -1,14 +1,18 @@
 from django.db import models
+from django.db.models import CharField
 from shop.models import Product
 
 
+
 class Order(models.Model):
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    email = models.EmailField()
-    address = models.CharField(max_length=250)
-    postal_code = models.CharField(max_length=20)
-    city = models.CharField(max_length=100)
+    first_name = models.CharField(max_length=50, verbose_name='Имя')
+    last_name = models.CharField(max_length=50, verbose_name='Фамилия')
+    phone_number = models.CharField(max_length=16, verbose_name='Номер телефона')
+    email = models.EmailField(blank=True)
+    region = models.CharField(max_length=124, verbose_name='Область')
+    city = models.CharField(max_length=250, verbose_name='Город')
+    adress = models.CharField(max_length=20, verbose_name='Номер склада')
+    coment = models.TextField(verbose_name='Коментарий', blank=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     paid = models.BooleanField(default=False)

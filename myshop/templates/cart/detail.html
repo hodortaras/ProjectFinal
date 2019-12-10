@@ -4,7 +4,7 @@
     <h1>Корзина:</h1>
 {% endblock %}
 {% block content %}
-    <table class="cart" style="width: 100%; overflow-y: auto; _overflow: auto; margin: 0 0 1em;">
+    <table class="table table-hover" style="width: 100%; overflow-y: auto; _overflow: auto; margin: 0 0 1em;">
         <thead>
         <tr>
             <th></th>
@@ -32,15 +32,15 @@
                     <td align="center">{{ product.name }} </td>
                     <td align="center">{{ item.quantity }}</td>
                     <td align="center"><a href="{% url "cart:cart_remove" product.id%}">Удалить</a></td>
-                    <td align="center" class="num">${{ item.price }}</td>
-                    <td align="center" class="num">${{ item.total_price }}</td>
+                    <td align="center" class="num">{{ item.price }}</td>
+                    <td align="center" class="num">{{ item.total_price }}</td>
                 </tr>
             {% endwith %}
         {% endfor %}
         <tr class="total">
             <td>Общая сумма корзины:</td>
             <td colspan="4"></td>
-            <td class="num">${{ cart.get_total_price }}</td>
+            <td class="num">{{ cart.get_total_price }} грн.</td>
         </tr>
         <tr class="total">
             <td colspan="4"></td>
