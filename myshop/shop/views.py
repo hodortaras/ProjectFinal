@@ -2,7 +2,8 @@ from django.shortcuts import render, get_object_or_404
 from .models import Category, Product
 from cart.forms import CartAddProductForm
 from django.views.generic import View
-
+from rest_framework import generics
+from shop.api.serializers import ProductSerializer
 
 
 def product_list(request, category_slug=None):
@@ -27,4 +28,11 @@ class ProductDetail(View):
                                                             'cart_product_form': cart_product_form})
 
 
+class ProductListView(generics.ListAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
 
+
+class ProductDetailView(generics.RetrieveAPIView):
+    queryset = Product.objects.filter(id=id)
+    serializer_class = ProductSerializer
