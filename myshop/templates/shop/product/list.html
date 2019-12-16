@@ -50,7 +50,7 @@
             {% endif %}
 
 
-    {% for product in products %}
+    {% for product in products.object_list %}
       <div class="col-lg-3 col-sm-3 mb-5">
         <div class="card h-100">
           <a href="{{product.get_absolute_url}}"><img class="card-img-top" src="{{product.image.url}}" style="height:200px" alt=""></a>
@@ -73,23 +73,23 @@
       {% endfor %}
     </div>
 </div>
-    <!-- <div id="main" class="product-list">
-        <h1>{% if category %}{{ category.name }}{% else %}Products{% endif %}</h1>
-        {% for product in products %}
-            <div class="item">
-                <a href="{{ product.get_absolute_url }}">
-                    <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
-                </a>
-                <a href="{{ product.get_absolute_url }}">{{ product.name }}</a><br>
-                ${{ product.price }}
-            </div>
-            <form action="{% url "cart:cart_add" product.id %}" method="post">
-                {{ cart_product_form }}
-                {% csrf_token %}
-                <input type="submit" value="Add to cart">
-            </form>
-        {% endfor %}
-    </div>
+<div class="col-lg-2 col-sm-2 mb-2 offset-5">
+<nav aria-label="...">
+  <ul class="pagination pagination-lg">
+    {% for n in products.paginator.page_range %}
+    {% if products.number == n %}
+    <li class="page-item active" aria-current="page">
+      <a class="page-link" href="?page={{ n }}">{{ n }}
+        <span class="sr-only">{{ n }}</span></a>
+      </li>
+
+      {% elif n > products.number|add:-3 and n < products.number|add:+3 %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{ n }}">{{ n }}</a>
+      </li>
+      {% endif %}
+      {%  endfor %}
+    </ul>
+  </nav>
   </div>
-</div> -->
 {% endblock %}

@@ -59,6 +59,10 @@
             <a class="nav-link" href="#">Контакты</a>
           </li>
         </ul>
+        <form class="form-inline mt-2 mt-md-0" action="{% url 'shop:product_list' %}">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="search">
+          <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+        </form>
       </div>
     </div>
   </nav>
@@ -128,11 +132,6 @@
 									{% csrf_token %}
 									<input type="submit" value="Добавить в корзину">
 								</form>
-
-                  <!-- {{ cart_product_form }}
-							  	<p class='text-center'><a href="{% url "cart:cart_add" product.id %}"><button class="btn btn-dark" method="post">
-                  {% csrf_token %}
-							  	Добавить в корзину</button></a></p> -->
               </div>
             </div>
           </div>
