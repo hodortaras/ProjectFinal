@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from rest_framework import generics
+from django.core.mail import send_mail
 
 from .api.serializers import OrderSerializer, OrderItemSerializer
 from .models import OrderItem, Order
 from .forms import OrderCreateForm
 from cart.cart import Cart
-from .tasks import order_created
+from .utils import send_mail_customer, send_mail_admin
 
 
 
@@ -22,7 +23,8 @@ def order_create(request):
                                          quantity=item['quantity'])
             # очистка корзины
             cart.clear()
-            order_created.delay(order.id)
+            send_mail_customer(order.id)
+            send_mail_admin(order.id)
             return render(request, 'orders/order/created.html', {'order': order})
     else:
         form = OrderCreateForm
@@ -37,7 +39,7 @@ class OrderCreatelView(generics.CreateAPIView):
 class OrderItemCreateView(generics.CreateAPIView):
     queryset = OrderItem.objects.all()
     serializer_class = OrderItemSerializer
-    
+
 
 
 class OrderDetailView(generics.RetrieveUpdateAPIView):

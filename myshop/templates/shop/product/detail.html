@@ -6,8 +6,8 @@
 {% block content %}
     <div class="product-detail">
       <div class="row">
-        <div class="col-lg-4 col-sm-4 mb-4">
-          <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" style = "width: 350px">
+        <div class="col-lg-5 col-sm-5 mb-5">
+          <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" style = "width: 500px">
         </div>
         <div class="col-lg-7 col-sm-7 mb-7">
         <h1>{{ product.name }}</h1>
