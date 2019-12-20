@@ -133,7 +133,7 @@ CART_SESSION_ID = 'cart'
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
-
+site-childstore@gmail.com
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
@@ -141,10 +141,11 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static_dev'),
 )
 
-
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_envsite-childstore@gmail.com)
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'dvalindvorf@gmail.com'
-EMAIL_HOST_PASSWORD = 'dvorfdvalin%)'
+EMAIL_HOST_USER = 'site-childstore@gmail.com'
+EMAIL_HOST_PASSWORD = 'dj:^%fcJKa'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
