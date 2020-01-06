@@ -23,7 +23,7 @@ def product_list(request, category_slug=None):
     categories = Category.objects.all()
     cart_product_form = CartAddProductForm()
 
-    paginator=Paginator(products, 12)
+    paginator=Paginator(products, 10)
     page_number=request.GET.get('page', 1)
     page=paginator.get_page(page_number)
     return render(request,'shop/product/list.html',context={'category': category,
