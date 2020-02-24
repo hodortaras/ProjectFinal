@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from django.urls import reverse_lazy
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -31,6 +32,9 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 SITE_ID = 1
+LOGIN_REDIRECT_URL = reverse_lazy('account:dashboard')
+LOGIN_URL = reverse_lazy('account:login')
+LOGOUT_URL = reverse_lazy('account:logout')
 
 # Application definition
 
