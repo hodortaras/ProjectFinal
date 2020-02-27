@@ -5,7 +5,7 @@ from django.core.paginator import Paginator
 from .models import Category, Product
 from cart.forms import CartAddProductForm
 from django.views.generic import View
-from rest_framework import generics
+# from rest_framework import generics
 from shop.api.serializers import ProductSerializer
 
 
@@ -39,12 +39,12 @@ class ProductDetail(View):
         return render(request, 'shop/product/detail.html', context={'product': product,
                                                             'cart_product_form': cart_product_form})
 
-
-class ProductListView(generics.ListAPIView):
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
-
-
-class ProductDetailView(generics.RetrieveAPIView):
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
+#
+# class ProductListView(generics.ListAPIView):
+#     queryset = Product.objects.all()
+#     serializer_class = ProductSerializer
+#
+#
+# class ProductDetailView(generics.RetrieveAPIView):
+#     queryset = Product.objects.all()
+#     serializer_class = ProductSerializer
