@@ -35,7 +35,7 @@ more-itertools==8.0.2
 openpyxl==2.6.3
 packaging==19.2
 pguard==0.4.0
-Pillow==6.2.1
+Pillow==9.0.0
 post==2019.4.13
 product==0.1.1.1
 psycopg2==2.8.4
