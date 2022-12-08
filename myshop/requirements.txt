@@ -1,6 +1,6 @@
 anyjson==0.3.3
 bootstrap-py==0.8.2
-certifi==2019.6.16
+certifi==2022.12.7
 cffi==1.13.2
 chardet==3.0.4
 cycler==0.10.0
